@@ -2,7 +2,7 @@
  * @Descripttion: 🐉对数器简单实现
  * @Author: xinxin
  * @Date: 2020-02-22 09:56:32
- * @LastEditTime: 2020-02-22 10:12:59
+ * @LastEditTime: 2020-02-22 11:42:02
  */
 //对数器实现,为了验证算法过程的疏漏
 //适用于改变输入值本身，不返回新的数组
@@ -10,6 +10,7 @@ function getResult(stack,funName){
     funName(stack)
     return stack
 }
+//num:生成测试用例的数目 compareOne:自己实现算法的函数名称 compareTwo：其他成功的实现算法函数名称
 function Logarithm(num,compareOne,compareTwo){
     //实现随机数列
     let arr = []
