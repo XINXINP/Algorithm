@@ -1,0 +1,77 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-06 08:31:41
+ * @LastEditTime: 2021-07-06 08:57:07
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Algorithm\散列\hash.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>散列</title>
+</head>
+<body>
+    <script>
+        //
+function HashTab(param) {  
+    this.tab = new Array(137)
+    this.simpleHash = simpleHash
+    this.put = put
+    this.get = get
+    this.showDistro = showDistro
+}
+function buildChains(){
+for (var i =  0;i< this.tab.length;i++) {
+    this.tab[i]= new Array();
+}
+}
+function betterHash(param) {  
+    var total = 0
+    for(var i = 0;i=data.length;i++){
+        total += data.charCodeAt(i)
+    }
+    return total % this.tab.length
+}
+function simpleHash(data){
+    var H = 31
+    var total = 0
+    for(var i = 0;i=data.length;i++){
+        total += H*total + data.charCodeAt(i)
+    }
+    if(total<0){total+=this.tab.length-1}
+    return total % this.tab.length
+}
+// function put(data) {
+//     var pos = this.simpleHash(data)
+//     this.tab[pos] = data
+// }
+function put(data) {
+    var pos = this.simpleHash(data)
+    var index = 0
+    if(this.tab[pos][index]==undefined){
+        this.tab[pos][index] = data
+    }else{
+        while(this.tab[pos][index]!=undefined){
+            ++index
+        }
+        this.tab[pos][index] = data
+    }
+}
+function get(data) {
+    return this.tab[this.simpleHash(data)]
+}
+function showDistro() { 
+    for (var i = 0; i < this.tab.length; i++) {
+        if(this.tab[i][0] != undefined){
+            console.log(this.tab[i]);
+        }
+        
+    }
+ }
+    </script>
+</body>
+</html>

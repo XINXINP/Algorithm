@@ -1,0 +1,54 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-06 08:13:18
+ * @LastEditTime: 2021-07-06 08:23:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Algorithm\字典\dictionary.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字典</title>
+</head>
+<body>
+    <script>
+        function dictionary () {  
+            this.datastore= new Array()
+            this.add = add
+            this.find = find
+            this.count = count
+            this.clear = clear
+            this.remove = remove
+            this.showAll = showAll
+        }
+        function add(key,value) {
+            this.datastore[key] = value 
+        }
+        function find(key){
+            return this.datastore[key]
+        }
+        function remove(key) {
+            delete this.datastore[key]
+        }
+        function showAll() {
+            var datakeys = Object.keys(this.datastore)
+            for (const keys of datakeys) {
+                console.log(datakeys[keys],this.datastore[datakeys[keys]]);
+            }
+        }
+        function count() {
+            return Object.keys(this.datastore).length
+        }
+        function clear() {
+            var datakeys = Object.keys(this.datastore)
+            for (const keys of datakeys) {
+                delete this.datastore[datakeys[keys]];
+            }
+        }
+    </script>
+</body>
+</html>
